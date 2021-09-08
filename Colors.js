@@ -3,4 +3,6 @@ export default Colors = {
   blue: "#24A6D9",
   lightblue: "#A7CBD9",
   white: "#fff",
+  gray: "#A4A4A4",
+  lightgray: "#CACACA",
 };
