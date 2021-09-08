@@ -89,7 +89,7 @@ export default tempData = [
   },
   {
     name: "Assignments5",
-    color: "#45ZA6D9",
+    color: "#234567",
     todos: [
       {
         title: "Database Quiz",

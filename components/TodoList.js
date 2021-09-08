@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import colors from "../Colors";
+import Colors from "../Colors";
 
 export default TodoList = ({ list }) => {
   const completedCount = list.todos.filter((todo) => todo.completed).length;
@@ -39,17 +39,17 @@ const styles = StyleSheet.create({
   listTitle: {
     fontSize: 24,
     fontWeight: "700",
-    color: colors.white,
+    color: Colors.white,
     marginBottom: 18,
   },
   count: {
     fontSize: 48,
     fontWeight: "200",
-    color: colors.white,
+    color: Colors.white,
   },
   subtitle: {
     fontSize: 12,
     fontWeight: "700",
-    color: colors.white,
+    color: Colors.white,
   },
 });

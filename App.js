@@ -5,29 +5,49 @@ import {
   View,
   TouchableOpacity,
   FlatList,
+  Modal,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import colors from "./Colors";
+import Colors from "./Colors";
 import tempData from "./tempData";
 import TodoList from "./components/TodoList";
+import AddLisiModel from "./components/AddListModel";
 
 export default class App extends React.Component {
+  state = {
+    addTodoVisible: false,
+  };
+
+  toggleAddTodoModal() {
+    this.setState({ addTodoVisible: !this.state.addTodoVisible });
+  }
+
   // console.log("ToDo Excuted");
   render() {
     return (
       <View style={styles.container}>
+        <Modal
+          animationType="slide"
+          visible={this.state.addTodoVisible}
+          onRequestClose={() => this.toggleAddTodoModal()}
+        >
+          <AddLisiModel closeModal={() => this.toggleAddTodoModal()} />
+        </Modal>
         <View style={{ flexDirection: "row" }}>
           <View style={styles.divider} />
           <Text style={styles.title}>
-            Todo{" "}
-            <Text style={{ fontWeight: "300", color: colors.blue }}>Lists</Text>
+            Notify{" "}
+            <Text style={{ fontWeight: "300", color: Colors.blue }}>Me</Text>
           </Text>
           <View style={styles.divider} />
         </View>
 
         <View style={{ marginVertical: 48 }}>
-          <TouchableOpacity style={styles.addList}>
-            <AntDesign name="plus" size={16} color={colors.blue} />
+          <TouchableOpacity
+            style={styles.addList}
+            onPress={() => this.toggleAddTodoModal()}
+          >
+            <AntDesign name="plus" size={16} color={Colors.blue} />
           </TouchableOpacity>
 
           <Text style={styles.add}>Add List</Text>
@@ -55,7 +75,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   divider: {
-    backgroundColor: colors.lightblue,
+    backgroundColor: Colors.lightblue,
     height: 1,
     flex: 1,
     alignSelf: "center",
@@ -63,19 +83,19 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 38,
     fontWeight: "800",
-    color: colors.black,
+    color: Colors.black,
     paddingHorizontal: 64,
   },
   addList: {
     borderWidth: 2,
-    borderColor: colors.lightblue,
+    borderColor: Colors.lightblue,
     borderRadius: 4,
     padding: 16,
     alignItems: "center",
     justifyContent: "center",
   },
   add: {
-    color: colors.blue,
+    color: Colors.blue,
     fontWeight: "600",
     fontSize: 14,
     marginTop: 8,
