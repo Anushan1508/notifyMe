@@ -1,5 +1,6 @@
 export default tempData = [
   {
+    id: 1,
     name: "Assignments",
     color: "#24A6D9",
     todos: [
@@ -22,12 +23,13 @@ export default tempData = [
     ],
   },
   {
-    name: "Assignments2",
+    id: 2,
+    name: "PrimeOne",
     color: "#941289",
     todos: [
       {
         title: "Database Quiz",
-        completed: false,
+        completed: true,
       },
       {
         title: "Web Tech Quiz",
@@ -44,7 +46,8 @@ export default tempData = [
     ],
   },
   {
-    name: "Assignments3",
+    id: 3,
+    name: "AUSDAV",
     color: "#941225",
     todos: [
       {
@@ -53,7 +56,7 @@ export default tempData = [
       },
       {
         title: "Web Tech Quiz",
-        completed: true,
+        completed: false,
       },
       {
         title: "Data Communications Quiz",
@@ -66,7 +69,8 @@ export default tempData = [
     ],
   },
   {
-    name: "Assignments4",
+    id: 4,
+    name: "Freelance",
     color: "#096066",
     todos: [
       {
@@ -88,7 +92,8 @@ export default tempData = [
     ],
   },
   {
-    name: "Assignments5",
+    id: 5,
+    name: "Party Works",
     color: "#234567",
     todos: [
       {
@@ -97,7 +102,7 @@ export default tempData = [
       },
       {
         title: "Web Tech Quiz",
-        completed: true,
+        completed: false,
       },
       {
         title: "Data Communications Quiz",
@@ -105,7 +110,7 @@ export default tempData = [
       },
       {
         title: "Management Quiz",
-        completed: true,
+        completed: false,
       },
     ],
   },
