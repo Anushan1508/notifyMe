@@ -12,12 +12,32 @@ import Colors from "./Colors";
 import tempData from "./tempData";
 import TodoList from "./components/TodoList";
 import AddLisiModel from "./components/AddListModel";
+import Fire from "./Fire";
+import firebase from "firebase";
 
 export default class App extends React.Component {
   state = {
     addTodoVisible: false,
-    lists: tempData,
+    lists: [],
+    user: {},
+    loading: true,
   };
+
+  componentDidMount() {
+    firebase = new Fire((error, user) => {
+      if (error) {
+        return alert("Uh oh, Something went Wrong");
+      }
+
+      firebase.getLists((lists) => {
+        this.setState({ lists, user }, () => {
+          this.setState({ loading: false });
+        });
+      });
+
+      this.setState({ user });
+    });
+  }
 
   toggleAddTodoModal() {
     this.setState({ addTodoVisible: !this.state.addTodoVisible });
@@ -57,6 +77,9 @@ export default class App extends React.Component {
             addList={this.addList}
           />
         </Modal>
+        <View>
+          <Text>User: {this.state.user.uid}</Text>
+        </View>
         <View style={{ flexDirection: "row" }}>
           <View style={styles.divider} />
           <Text style={styles.title}>
